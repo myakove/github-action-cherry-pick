@@ -29,13 +29,14 @@ MESSAGE=$(git log -1 $GITHUB_SHA | grep "AUTO" | wc -l)
 echo "PR_BRANCH: $PR_BRANCH"
 echo "MESSAGE: $MESSAGE"
 
+PR_TITLE=$(git log -1 --format="%s" $GITHUB_SHA)
+echo "PR_TITLE: $PR_TITLE"
 
 if [[ $MESSAGE -gt 0 ]]; then
   echo "Autocommit, NO ACTION"
   exit 0
 fi
 
-PR_TITLE=$(git log -1 --format="%s" $GITHUB_SHA)
 
 git_setup
 git_cmd git remote update
