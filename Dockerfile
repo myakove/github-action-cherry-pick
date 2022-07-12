@@ -1,10 +1,12 @@
 # syntax = docker/dockerfile:1.1-experimental
-FROM alpine
+FROM ubuntu
 
-RUN apk --update --no-cache add git=2.35.1 bash py3-pip openssh
-
-RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing hub
-
+RUN apt-get -y update
+RUN apt-get -y install git python3-pip
+#RUN apk --update --no-cache add git bash py3-pip openssh
+#
+#RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing hub
+#
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
