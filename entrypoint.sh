@@ -35,7 +35,6 @@ fi
 PR_TITLE=$(git log -1 --format="%s" $GITHUB_SHA)
 
 git_setup
-git config --global --add safe.directory /github/workspace
 git_cmd git remote update
 git_cmd git fetch --all
 git_cmd git checkout -b "${PR_BRANCH}" origin/"${INPUT_PR_BRANCH}"
