@@ -11,8 +11,8 @@ git_setup() {
 EOF
   chmod 600 $HOME/.netrc
 
-  git config --global user.email "$GITBOT_EMAIL"
-  git config --global user.name "$GITHUB_ACTOR"
+  sudo git config --global user.email "$GITBOT_EMAIL"
+  sudo git config --global user.name "$GITHUB_ACTOR"
   sudo git config --global --add safe.directory /github/workspace
 }
 
